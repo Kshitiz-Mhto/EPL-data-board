@@ -1,0 +1,136 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>English Premier League</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'stylei.css' %}">
+        <link rel="shortcut icon" href="{% static 'assets/epltitle.png' %}" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); </style>
+  </head>
+  <body> 
+      <header>
+        <div id="head">
+          <h2> 
+            <img src="{% static 'assets/logoright.png' %}" id="logo" alt="logo"><b>English Premier League<b><img src="{% static 'assets/logoleft.png' %}" id="logo" alt="logo">
+            </h2><br>
+          <h4>Accurate EPL api data with supported live score.<br> The reliable data soucre for your passion!</h4><br>
+          <a>
+            <button id="headerButton" class="button">
+              <span>SHOW ME  </span>
+            </button>
+          </a>
+
+        </div>
+      </header>
+      <img src="{% static 'assets/headerbottom.png' %}" id="headerliner" alt="bottomline">
+      <div class="main">
+          <div id="data">
+              <div class="flex-container">
+                <div id="data1">
+                  <img src="{% static 'assets/epltitle.png' %}" id="epl" alt="epl"><br>
+                  <h4> Only one can win, and all the others are disappointed and live in the middle of disaster.</h4>
+                </div>
+                <div id="data2">Top Goal Scorers<br>
+                  <span id="daterange">{{start}}---{{end}}</span>
+                  <hr>
+                  <div class="flex-containerScore">
+                    <table class="w3-table-all">
+                      <thead>
+                        <tr class="w3-gray" style="color: black; text-align: center; background-color:rgb(170, 150, 150);">
+                          <th>#</th>
+                          <th>Player Name</th>
+                          <th>Goals</th>
+                        </tr>
+                      </thead>
+                          {% for top in topper %}
+                            {% if forloop.counter <= 5 %}
+                              <tr>
+                                <td>
+                                  <a href="{{top.team.website}}" target="_blank">
+                                    <img src="{{top.team.crest}}" id="crest">
+                                  </a>
+                                </td>
+                                <td>
+                                  <span id="playerDetail">{{top.player.name}}</span>
+                                </td>
+                                <td>
+                                  <ion-icon name="football"></ion-icon>{{top.goals}}
+                                </td>
+                              </tr>
+                            {% endif %}
+                          {% endfor %}
+                      </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div id="datatable">
+              <table class="w3-table-all">
+                  <thead>
+                    <tr class="w3-gray" style="color: black; text-align: center; background-color:rgb(170, 150, 150);">
+                      <th>#</th>
+                      <th></th>
+                      <th style="text-align:left;">Teams</th>
+                      <th>Pl</th>
+                      <th>W</th>
+                      <th>L</th>
+                      <th>D</th>
+                      <th>GD</th>
+                      <th>Pts</th>
+                      <th>Current Form</th>
+                    </tr>
+                  </thead>
+                {% for teams in standings  %}
+                  <tr>
+                    <td>{{teams.position}}</td>
+                    <td>
+                        <img src="{{teams.team.crest}}" id="crest">
+                    </td>
+                    <td style="text-align:left;">{{teams.team.name}}</td>
+                    <td>{{teams.playedGames}}</td>
+                    <td>{{teams.won}}</td>
+                    <td>{{teams.lost}}</td>
+                    <td>{{teams.draw}}</td>
+                    <td>{{teams.goalDifference}}</td>
+                    <td>{{teams.points}}</td>
+                    <td>
+                      {% for formi in teams.form %}
+                        {% if formi != "," %}
+                          {% if formi == 'W' %}
+                            <div class="flex-containery">
+                              <div id="yWon"><b>{{formi}}</b></div>
+                            </div> 
+                          {% elif formi == 'D' %}
+                            <div class="flex-containery">
+                              <div id="yDraw"><b>{{formi}}</b></div>
+                            </div>
+                          {% else %}
+                            <div class="flex-containery">
+                              <div id="yLost"><b>{{formi}}</b></div>
+                            </div>
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+          </div>
+      </div>
+    <script>
+      var scrollDownButton = document.getElementById("headerButton");
+
+      scrollDownButton.addEventListener("click", function() {
+          var scrollPosition = 850; 
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth"});
+      });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
