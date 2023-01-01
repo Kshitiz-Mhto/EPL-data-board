@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .apilol import standingS, scorer
+from .apilol import standingS, scorer, todayMatch
 
 # Create your views here.
 
@@ -15,6 +15,8 @@ def home(request):
     
     dates, top_scorers = scorer()
 
+    matches = todayMatch()
+
     return render(
         request,
         'epl.html',
@@ -23,5 +25,6 @@ def home(request):
             'form':formi,
             'start':dates['startDate'],
             'end':dates['startDate'],
-            'topper':top_scorers
+            'topper':top_scorers,
+            'todayMatches':matches
             })

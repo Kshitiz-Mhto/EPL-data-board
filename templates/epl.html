@@ -16,7 +16,7 @@
           <h2> 
             <img src="{% static 'assets/logoright.png' %}" id="logo" alt="logo"><b>English Premier League<b><img src="{% static 'assets/logoleft.png' %}" id="logo" alt="logo">
             </h2><br>
-          <h4>Accurate EPL api data with supported live score.<br> The reliable data soucre for your passion!</h4><br>
+          <h4>Accurate English Premier League data with supported live score.<br> The reliable data soucre for your passion!</h4><br>
           <a>
             <button id="headerButton" class="button">
               <span>SHOW ME  </span>
@@ -33,31 +33,33 @@
                   <img src="{% static 'assets/epltitle.png' %}" id="epl" alt="epl"><br>
                   <h4> Only one can win, and all the others are disappointed and live in the middle of disaster.</h4>
                 </div>
-                <div id="data2">Top Goal Scorers<br>
+                <div id="data2">Today's Matches<br>
                   <span id="daterange">{{start}}---{{end}}</span>
                   <hr>
-                  <div class="flex-containerScore">
-                    <table class="w3-table-all">
+                  <div class="flex-Todaymatch">
+                    <table class="w3-tablei" style="width: 100%;font-size: 17px;">
                       <thead>
-                        <tr class="w3-gray" style="color: black; text-align: center; background-color:rgb(170, 150, 150);">
-                          <th>#</th>
-                          <th>Player Name</th>
-                          <th>Goals</th>
+                        <tr class="w3-gray" style="color: black; text-align: center; font-size:17px;">
+                          <th>Status</th>
+                          <th>Teams</th>
+                          <th>Score</th>
                         </tr>
                       </thead>
-                          {% for top in topper %}
+                          {% for matches in todayMatches %}
                             {% if forloop.counter <= 5 %}
                               <tr>
                                 <td>
-                                  <a href="{{top.team.website}}" target="_blank">
-                                    <img src="{{top.team.crest}}" id="crest">
-                                  </a>
+                                  {{ matches.utcDate | slice:"0:10"}} &nbsp; {{ matches.utcDate | slice:"11:13"}} Hrs.
                                 </td>
                                 <td>
-                                  <span id="playerDetail">{{top.player.name}}</span>
+                                  <img src="{{matches.homeTeam.crest}}" style="width:20px;">
+                                  <span id="playerDetail">{{matches.homeTeam.name}}</span>
+                                  &ensp; Vs &ensp;
+                                  <img src="{{matches.awayTeam.crest}}" style="width:20px;">
+                                  <span id="playerDetail">{{matches.awayTeam.name}}</span>
                                 </td>
                                 <td>
-                                  <ion-icon name="football"></ion-icon>{{top.goals}}
+                                  :
                                 </td>
                               </tr>
                             {% endif %}
@@ -117,9 +119,8 @@
                     </td>
                   </tr>
                   {% endfor %}
-                </table>
+              </table>
           </div>
-      </div>
     <script type="text/javascript" src="{% static 'main.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

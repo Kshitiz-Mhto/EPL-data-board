@@ -38,3 +38,17 @@ def scorer():
     #     if i ==5:
     #         return
 # scorer()
+
+def todayMatch():
+    uri="https://api.football-data.org/v4/competitions/PL/matches?status=SCHEDULED"
+    response = requests.get(uri, headers=headers)
+    matches = response.json()['matches'] # list of dict
+    return matches
+    # i = 0
+    # for x in matches:
+    #     if i== 5:
+    #         break
+    #     print(x['homeTeam']['name']," Vs ", x['awayTeam']['name'])
+    #     print(x['utcDate'][:10])
+    #     i +=1
+# todayMatch()
