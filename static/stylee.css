@@ -221,7 +221,7 @@ h1 {
   background-size: cover;
 }
 .inner-header {
-  height:75vh;
+  height:80vh;
   width:100%;
   margin: 0;
   padding: 0;
@@ -287,7 +287,7 @@ h1 {
 	background: url('assets/linestadium.jpg') center;
 	background-size: cover;
 	margin:auto;
-	margin-top: 65px;
+	margin-top: 80px;
 	overflow: hidden;
 	padding-bottom: 30px;
 }
@@ -299,7 +299,15 @@ h1 {
 	width:80%;
 	margin:auto;
 	margin-top:4px;
+	font-family: 'Poppins', sans-serif;
 	
+}
+
+#titleFlex{
+	color:white;
+	text-align:center;
+	font-size: 30px;
+	font-weight: 300px;
 }
 
 .flex-teamFlag > div{
@@ -315,3 +323,33 @@ h1 {
 #crestAll:hover{
 	transform: scale(1.23);
 }
+
+/* loader */
+
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+  }
+  
+.spinner {
+width: 50px;
+height: 50px;
+border: 8px solid #f3f3f3;
+border-radius: 50%;
+border-top: 8px solid #3498db;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+  
