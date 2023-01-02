@@ -22,7 +22,6 @@
               <span>SHOW ME  </span>
             </button>
           </a>
-
         </div>
       </header>
       <img src="{% static 'assets/headerbottom.png' %}" id="headerliner" alt="bottomline">
@@ -146,6 +145,8 @@
             <!--Waves end-->
           </div>
           <div class='teamsFlag'>
+            <p id="titleFlex">Teams in English Premier League</p>
+            <hr>
             <div class="flex-teamFlag">
             {% for teams in standings  %}
               <div>
@@ -156,6 +157,11 @@
               {% endif %}
             {% endfor %}
             </div>
+          </div>
+
+          <div id="loader">
+            <div class="spinner"></div><br>
+            <p>Loading...</p>
           </div>
           
     <script type="text/javascript" src="{% static 'main.js' %}"></script>
