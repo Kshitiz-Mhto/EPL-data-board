@@ -123,7 +123,11 @@ right: 0;
 	width:30px;
 }
 #crestVS{
-	width: 18px;
+	width: 15px;
+}
+#hrs{
+	background-color: #007bff;
+	border-radius: 3px;
 }
 .w3-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.w3-table-all{border:1px solid #ccc}
 .w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
@@ -196,3 +200,29 @@ td{
 	font-size: 25px;
 	font-family: 'Poppins', sans-serif;
 }
+
+.teamsFlag{
+	width: 100%;
+	height: 400px;
+	background: url('assets/linestadium.jpg') center;
+	background-size: cover;
+	margin-top: 20px;
+}
+
+.flex-teamFlag{
+	display:flex;
+	justify-content: center;
+}
+
+
+
+
+#top5Stats {
+	position: relative;
+	width: 500px;
+	height: 265px;
+  
+	overflow: hidden;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  }
+  

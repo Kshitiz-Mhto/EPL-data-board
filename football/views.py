@@ -24,7 +24,7 @@ def home(request):
             'standings':standing,
             'form':formi,
             'start':dates['startDate'],
-            'end':dates['startDate'],
+            'end':dates['endDate'],
             'topper':top_scorers,
             'todayMatches':matches
             })

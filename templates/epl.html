@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>English Premier League</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'stylei.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
         <link rel="shortcut icon" href="{% static 'assets/epltitle.png' %}" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <style> @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); </style>
@@ -37,7 +37,7 @@
                   <span id="daterange">{{start}}---{{end}}</span>
                   <hr>
                   <div class="flex-Todaymatch">
-                    <table class="w3-tablei" style="width: 100%;font-size: 17px;">
+                    <table class="w3-tablei" style="width: 100%;font-size: 15px;">
                       <thead>
                         <tr class="w3-gray" style="color: black; text-align: center; font-size:17px;">
                           <th>Status</th>
@@ -49,13 +49,13 @@
                             {% if forloop.counter <= 5 %}
                               <tr>
                                 <td>
-                                  {{ matches.utcDate | slice:"0:10"}} &nbsp; {{ matches.utcDate | slice:"11:13"}} Hrs.
+                                  {{ matches.utcDate | slice:"6:10"}}&nbsp;|&nbsp;<span id="hrs">{{ matches.utcDate | slice:"11:13"}} Hrs.</span>
                                 </td>
-                                <td>
-                                  <img src="{{matches.homeTeam.crest}}" style="width:20px;">
+                                <td style="text-align:center;">
+                                  <img src="{{matches.homeTeam.crest}}" id='crestVS'>
                                   <span id="playerDetail">{{matches.homeTeam.name}}</span>
                                   &ensp; Vs &ensp;
-                                  <img src="{{matches.awayTeam.crest}}" style="width:20px;">
+                                  <img src="{{matches.awayTeam.crest}}" id="crestVS">
                                   <span id="playerDetail">{{matches.awayTeam.name}}</span>
                                 </td>
                                 <td>
@@ -120,6 +120,11 @@
                   </tr>
                   {% endfor %}
               </table>
+          </div>
+          <div class='teamsFlag'>
+            <div class="flex-teamFlag">
+              
+            </div>
           </div>
     <script type="text/javascript" src="{% static 'main.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
