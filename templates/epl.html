@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>English Premier League</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'stylee.css' %}">
         <link rel="shortcut icon" href="{% static 'assets/epltitle.png' %}" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <style> @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); </style>
@@ -123,9 +123,42 @@
           </div>
           <div class='teamsFlag'>
             <div class="flex-teamFlag">
-              
+            {% for teams in standings  %}
+              <div>
+                <img src="{{teams.team.crest}}" id="crestAll">
+              </div>
+              {% if forloop.counter|divisibleby:5 %}
+                <br>
+              {% endif %}
+            {% endfor %}
             </div>
           </div>
+
+          <div class="afterTable">
+            <div class="inner-header flex">
+            <h1>
+              <b>Explore more about Teams and Players<br>informations.</b>
+            </h1>
+            </div>
+            
+            <!--Waves Container-->
+            <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+            </svg>
+            </div>
+            <!--Waves end-->
+          </div>
+          
     <script type="text/javascript" src="{% static 'main.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
