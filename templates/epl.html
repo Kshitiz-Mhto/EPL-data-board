@@ -121,18 +121,6 @@
                   {% endfor %}
               </table>
           </div>
-          <div class='teamsFlag'>
-            <div class="flex-teamFlag">
-            {% for teams in standings  %}
-              <div>
-                <img src="{{teams.team.crest}}" id="crestAll">
-              </div>
-              {% if forloop.counter|divisibleby:5 %}
-                <br>
-              {% endif %}
-            {% endfor %}
-            </div>
-          </div>
 
           <div class="afterTable">
             <div class="inner-header flex">
@@ -140,7 +128,6 @@
               <b>Explore more about Teams and Players<br>informations.</b>
             </h1>
             </div>
-            
             <!--Waves Container-->
             <div>
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -157,6 +144,18 @@
             </svg>
             </div>
             <!--Waves end-->
+          </div>
+          <div class='teamsFlag'>
+            <div class="flex-teamFlag">
+            {% for teams in standings  %}
+              <div>
+                <img src="{{teams.team.crest}}" id="crestAll">
+              </div>
+              {% if forloop.counter|divisibleby:5 %}
+                <br>
+              {% endif %}
+            {% endfor %}
+            </div>
           </div>
           
     <script type="text/javascript" src="{% static 'main.js' %}"></script>
