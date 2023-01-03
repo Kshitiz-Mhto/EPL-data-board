@@ -7,6 +7,7 @@
       <title>English Premier League</title>
         <link rel="stylesheet" type="text/css" href="{% static 'stylee.css' %}">
         <link rel="shortcut icon" href="{% static 'assets/epltitle.png' %}" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <style> @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); </style>
   </head>
@@ -156,6 +157,31 @@
                 <br>
               {% endif %}
             {% endfor %}
+            </div>
+          </div>
+
+          <div id="dataP">
+            <div id="dataGoali">Top Goal Scorers<br>
+              <hr>
+              <table class="w3-table-all">
+                {% for top in topper %}
+                {% if forloop.counter <= 5 %}
+                    <tr>
+                    <td>
+                        <a href="{{top.team.website}}" target="_blank">
+                        <img src="{{top.team.crest}}" id="crestData">
+                        </a>
+                    </td>
+                    <td style="text-align:left;">
+                        <span id="playerDetail">{{top.player.name}}</span>
+                    </td>
+                    <td>
+                        <ion-icon name="football"></ion-icon>{{top.goals}}
+                    </td>
+                    </tr>
+                {% endif %}
+                {% endfor %}
+              </table>
             </div>
           </div>
 

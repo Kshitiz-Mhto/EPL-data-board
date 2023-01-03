@@ -324,6 +324,27 @@ h1 {
 	transform: scale(1.23);
 }
 
+#dataP{
+	width: 80vw;
+	margin:auto;
+	margin-top:90px;
+
+}
+
+#dataGoali{
+	width: 400px;
+	margin: 2px;
+	text-align: center;
+	height: fit-content;
+	padding-left: 6px;
+	font-size: 20px;
+	font-family: 'Poppins', sans-serif;
+}
+
+#crestData{
+	width:25px;
+}
+
 /* loader */
 
 #loader {
