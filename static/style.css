@@ -325,10 +325,17 @@ h1 {
 }
 
 #dataP{
-	width: 80vw;
+	width: 95vw;
 	margin:auto;
-	margin-top:90px;
-
+	margin-top:110px;
+	margin-bottom:50px;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	border-style: solid;
+	border-radius: 3px;
+	border-width: 0px;
+	box-shadow: 2px 2px 20px;
+	height: fit-content;
 }
 
 #dataGoali{
@@ -339,6 +346,20 @@ h1 {
 	padding-left: 6px;
 	font-size: 20px;
 	font-family: 'Poppins', sans-serif;
+	margin-left:90px;
+	display: inline-block;
+}
+
+#dataAssisti{
+	width: 400px;
+	margin: 2px;
+	text-align: center;
+	height: fit-content;
+	padding-left: 6px;
+	font-size: 20px;
+	font-family: 'Poppins', sans-serif;
+	display: inline-block;
+	margin-left:280px;
 }
 
 #crestData{
