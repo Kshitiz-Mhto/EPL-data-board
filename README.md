@@ -2,7 +2,7 @@
 
 ![alt EPL logo](./static/assets/logoright.png)
 
-#### English Premier League data is extracted through [Football-Data](tps://www.football-data.org/) and created a basic page for football enthusiast and fans to provide them reliable data and  information about the EPL.
+#### English Premier League data is extracted through (Football-Data)[https://www.football-data.org/] and created a basic page for football enthusiast and fans to provide them reliable data and  information about the EPL.
 
 ```
 1. install django and python3 in your system 
