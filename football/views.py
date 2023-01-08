@@ -2,10 +2,6 @@ from django.shortcuts import render
 
 from .apilol import standingS, scorer, todayMatch
 
-# Create your views here.
-
-#bd93962d45c9409bbadbf0d29c25e67e
-
 def home(request):
     standing = standingS()
     formi = []
