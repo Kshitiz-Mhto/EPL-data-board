@@ -148,14 +148,23 @@
             <p id="titleFlex">Teams in English Premier League</p>
             <hr>
             <div class="flex-teamFlag">
-            {% for teams in standings  %}
-              <div>
-                <img src="{{teams.team.crest}}" id="crestAll">
-              </div>
-              {% if forloop.counter|divisibleby:5 %}
-                <br>
-              {% endif %}
-            {% endfor %}
+              {% for team in teamsDetail  %}
+                <div id="teamDetail" style="display:none;">
+                  <p>
+                    <img src="{{team.crest}}" id="crest">&ensp; {{team.name}}&nbsp;|&nbsp;{{team.tla}}
+                    <br>
+                    {{team.founded}}
+                  </p>
+                  <hr>
+                  <br>
+                </div>
+                  <div id="teamCrest">
+                    <img src="{{team.crest}}" id="crestAll">
+                  </div>
+                  {% if forloop.counter|divisibleby:5 %}
+                    <br>
+                  {% endif %}
+              {% endfor %}
             </div>
           </div>
 

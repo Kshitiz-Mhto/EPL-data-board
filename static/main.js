@@ -12,3 +12,14 @@ scrollDownButton.addEventListener("click", function() {
       top: scrollPosition,
       behavior: "smooth"});
 });
+
+let crest = document.getElementById('crestAll');
+let div = document.getElementById('teamDetail');
+
+crest.addEventListener("mouseenter", function() {
+  div.style.display = 'block';
+});
+
+crest.addEventListener('mouseleave', function() {
+  div.style.display = 'none';
+});

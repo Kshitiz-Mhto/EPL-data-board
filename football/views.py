@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .apilol import standingS, scorer, todayMatch
+from .apilol import standingS, scorer, todayMatch, teamStats
 
 def home(request):
     standing = standingS()
@@ -13,6 +13,8 @@ def home(request):
 
     matches = todayMatch()
 
+    teams = teamStats()
+
     return render(
         request,
         'epl.html',
@@ -22,5 +24,6 @@ def home(request):
             'start':dates['startDate'],
             'end':dates['endDate'],
             'topper':top_scorers,
-            'todayMatches':matches
+            'todayMatches':matches,
+            'teamsDetail':teams
             })

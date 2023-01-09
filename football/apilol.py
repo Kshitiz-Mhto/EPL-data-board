@@ -23,3 +23,8 @@ def todayMatch():
     matches = response.json()['matches'] # list of dict
     return matches
 
+def teamStats():
+    uri="http://api.football-data.org/v4/competitions/PL/teams"
+    response = requests.get(uri, headers=headers)
+    teams = response.json()['teams']
+    return teams

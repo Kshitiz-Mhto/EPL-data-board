@@ -318,6 +318,16 @@ h1 {
 	margin-top: 40px;
 
 }
+
+#teamDetail{
+	position: absolute;
+	width: fit-content;
+	height: fit-content;
+	z-index: 10;
+	border-style: solid;
+	text-align: center;
+}
+
 #crestAll:hover{
 	transform: scale(1.23);
 }
