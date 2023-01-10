@@ -403,3 +403,52 @@ animation: spin 1s linear infinite;
 100% { transform: rotate(360deg); }
 }
   
+footer{
+	background-color: blanchedalmond;
+	margin-top: 100px;
+}
+
+.flex-Footer {
+	display: flex;
+	flex-direction: row;
+	background-color: transparent;
+	justify-content: space-evenly;
+  }
+
+.flex-Footer > div {
+	background-color: transparent;
+	margin: auto;
+	text-align: Center;
+	font-size: 15px;
+	line-height: 25px;
+}
+
+#r1footer, #r12footer{
+	width:500px;
+}
+
+#r12footer{
+	font-size: 26px;
+	color: gray;
+	padding-top: 75px;
+}
+
+#logo{
+	width: 200px;
+	height: 170px;
+	object-fit: cover;	
+}
+
+.social-icon{
+    margin-left:7px;
+    margin-right: 7px;
+    font-size: 45px;
+    color:black;
+    text-decoration: none;
+    transition: color 0.25s;
+}
+
+.social-icon:hover{
+    color:blue;
+    cursor: pointer;
+}
