@@ -8,7 +8,7 @@ with io.open(os.path.join(this_directory, 'README.md'), 'r', encoding='utf-8') a
     long_description = f.read()
 
 setup(
-    name='ecommerce_django',
+    name='ecommerce_djangoxx',
     version='1.0.0',
     packages=find_packages(),
     url='https://github.com/Kshitiz-Mhto/EPL-data-board',

@@ -8,7 +8,7 @@ with io.open(os.path.join(this_directory, 'README.md'), 'r', encoding='utf-8') a
     long_description = f.read()
 
 setup(
-    name='EPL-data-board',
+    name='EPL-data-boardxx',
     version='0.0.1',
     packages=find_packages(),
     url='https://github.com/Kshitiz-Mhto/EPL-data-board',
