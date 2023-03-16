@@ -13,11 +13,26 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install dependencies
+      - name: Install dependencies for EPL
+        working-directory: ./
         run: |
           python -m pip install --upgrade pip 
           pip install build twine
+
       - name: Build package
+        working-directory: ./
+        run: |
+          python -m build
+          twine check --strict dist/*
+      
+      - name: Install dependencies for E-Commerce
+        working-directory: ./ecommerce-website-django
+        run: |
+          python -m pip install --upgrade pip 
+          pip install build twine
+      
+      - name: Build package
+        working-directory: ./ecommerce-website-django
         run: |
           python -m build
           twine check --strict dist/*
