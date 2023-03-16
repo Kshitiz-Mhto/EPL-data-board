@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build-wheels-N-package:
+  build-package-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,3 +36,10 @@ jobs:
         run: |
           python -m build
           twine check --strict dist/*
+
+
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
