@@ -1,4 +1,4 @@
-ame: Deploy Python Package to PyPI & update docs
+name: Deploy Python Package to PyPI & update docs
 
 on:
   push:
