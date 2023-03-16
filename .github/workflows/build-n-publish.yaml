@@ -4,11 +4,12 @@ on:
   push:
 
 jobs:
-  deploy:
+  build-wheels-N-package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+      - name: Dependent Issues
+        uses: z0al/dependent-issues@v1.5.2
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
