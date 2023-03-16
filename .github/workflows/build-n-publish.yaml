@@ -37,9 +37,18 @@ jobs:
           python -m build
           twine check --strict dist/*
 
-
       - name: Publish package
-        uses: pypa/gh-action-pypi-publish@release/v1
+        uses: pypa/gh-action-pypi-publish@v1.8.1
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
+          packages-dir: ./ecommerce-website-django/dist/*
+          verbose: true
+
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@v1.8.1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+          packages-dir: ./epl-board/dist/*
+          verbose: true
