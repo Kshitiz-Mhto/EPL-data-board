@@ -42,5 +42,5 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
-          packages-dir: dist/*
+          packages-dir: dist/
           verbose: true
