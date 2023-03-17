@@ -4,7 +4,12 @@ on:
   push:
 
 jobs:
-  build-package-publish:
+  build:
+    strategy:
+      matrix:
+        directory: ['./ecommerce-website-django','./epl-board']
+
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,7 +26,7 @@ jobs:
           ls
       
       - name: Build package
-        working-directory: ./epl-board
+        # working-directory: ./epl-board
         run: |
           python -m build --outdir dist/
           twine check --strict dist/*
@@ -29,7 +34,7 @@ jobs:
           ls
       
       - name: Build package
-        working-directory: ./ecommerce-website-django
+        # working-directory: ./ecommerce-website-django
         run: |
           python -m build --outdir dist/
           twine check --strict dist/*
@@ -37,14 +42,12 @@ jobs:
           ls
 
       - name: Publish package
+        # working-directory: ./ecommerce-website-django
         uses: pypa/gh-action-pypi-publish@v1.8.1
-        run: |
-          pwd
-          ls
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
-          packages: |
-            ./epl-board/dist/epl_boardx-*
-            ./ecommerce-website-django/dist/ecommerce_website_djangox-*
+          # packages: |
+          #   ./epl-board/dist/epl_boardx-*
+          #   ./ecommerce-website-django/dist/ecommerce_website_djangox-*
           verbose: true
