@@ -23,7 +23,7 @@ jobs:
         working-directory: ./epl-board
         run: |
           python -m build --outdir dist/
-          twine check --strict dist/*
+          twine check --strict dist/epl_board-*
       
       - name: Install dependencies for E-Commerce
         working-directory: ./ecommerce-website-django
@@ -35,12 +35,14 @@ jobs:
         working-directory: ./ecommerce-website-django
         run: |
           python -m build --outdir dist/
-          twine check --strict dist/*
+          twine check --strict dist/ecommerce_website_django-*
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@v1.8.1
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
-          packages-dir: dist/
+          packages: |
+            ./epl-board/dist/epl_board-*
+            ./ecommerce-website-django/dist/ecommerce_website_django-*
           verbose: true
