@@ -28,8 +28,8 @@ jobs:
       - name: Build package
         working-directory: ${{ matrix.directory  }}
         run: |
-          python -m build --outdir dist/
-          twine check --strict dist/*
+          python -m build --outdir ../dist/
+          twine check --strict ../dist/*
           pwd
           ls
 
