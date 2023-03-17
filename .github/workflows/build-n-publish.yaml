@@ -26,15 +26,7 @@ jobs:
           ls
       
       - name: Build package
-        # working-directory: ./epl-board
-        run: |
-          python -m build --outdir dist/
-          twine check --strict dist/*
-          pwd
-          ls
-      
-      - name: Build package
-        # working-directory: ./ecommerce-website-django
+        working-directory: ${{ matrix.directory  }}
         run: |
           python -m build --outdir dist/
           twine check --strict dist/*
