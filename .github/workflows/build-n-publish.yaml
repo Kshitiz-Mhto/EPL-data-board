@@ -9,8 +9,12 @@ jobs:
     # strategy:
     #   matrix:
     #     directory: ['./ecommerce-website-django','./epl-board']
-
+    name: build-scan-publish
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -40,18 +44,52 @@ jobs:
           pwd
           ls
       - name: Scan for vulnerabilities
-        # working-directory: ./ecommerce-website-django
         run: |
           wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
           chmod +x ./osv-scanner_1.2.0_linux_amd64
-          ./osv-scanner_1.2.0_linux_amd64 -r .
+          ./osv-scanner_1.2.0_linux_amd64 --format markdown -r . > result.md
 
-      # - name: Scan for vulnerabilities
-      #   working-directory: ./epl-board
-      #   run: |
-      #     wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
-      #     chmod +x ./osv-scanner_1.2.0_linux_amd64
-      #     ./osv-scanner_1.2.0_linux_amd64 requirements.txt
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: result after vulnerabilities scanning using osv-scanner
+
+          # Optional. Local and remote branch name where commit is going to be pushed
+          #  to. Defaults to the current branch.
+          #  You might need to set `create_branch: true` if the branch does not exist.
+          branch: ${{ github.sha }}
+
+          # Optional. Local file path to the repository.
+          # Defaults to the root of the repository.
+          repository: .
+
+          file_pattern: 'result.md'
+
+          # Optional commit user and author settings
+          commit_user_name: Kshitiz-Mhto
+          commit_user_email: nkcmcdhy@gmail.com
+          commit_author: Kshitiz-Mhto
+
+
+          # Optional. Options used by `git-push`.
+          # See https://git-scm.com/docs/git-push#_options
+          push_options: '--force'
+          
+          # Optional. Disable dirty check and always try to create a commit and push
+          skip_dirty_check: true    
+          
+          # Optional. Skip internal call to `git fetch`
+          skip_fetch: true    
+          
+          # Optional. Skip internal call to `git checkout`
+          skip_checkout: false
+
+          # Optional. Prevents the shell from expanding filenames. 
+          # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+          disable_globbing: true
+
+          # Optional. Create given branch name in local and remote repository.
+          create_branch: true
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@v1.8.1
