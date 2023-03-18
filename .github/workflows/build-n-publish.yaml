@@ -48,6 +48,7 @@ jobs:
           wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
           chmod +x ./osv-scanner_1.2.0_linux_amd64
           ./osv-scanner_1.2.0_linux_amd64 --format markdown -r . > result.md
+        continue-on-error: true
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
