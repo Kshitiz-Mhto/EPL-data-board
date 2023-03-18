@@ -19,7 +19,6 @@ jobs:
           python-version: 3.8
 
       - name: Install dependencies
-        working-directory: ./ecommerce-website-django
         run: |
           python -m pip install --upgrade pip 
           pip install build twine
@@ -40,6 +39,19 @@ jobs:
           twine check --strict ../dist/*
           pwd
           ls
+      - name: Scan for vulnerabilities
+        working-directory: ./ecommerce-website-django
+        run: |
+          wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
+          chmod +x ./osv-scanner_1.2.0_linux_amd64
+          ./osv-scanner_1.2.0_linux_amd64 -r .
+
+      - name: Scan for vulnerabilities
+        working-directory: ./epl-board
+        run: |
+          wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
+          chmod +x ./osv-scanner_1.2.0_linux_amd64
+          ./osv-scanner_1.2.0_linux_amd64 -r .
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@v1.8.1
