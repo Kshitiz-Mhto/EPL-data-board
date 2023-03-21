@@ -11,3 +11,7 @@ jobs:
         run: |
            docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner:latest -r .
         continue-on-error: true
+      - name: Creating Pull Request
+        uses: heitorpolidoro/autocreate-pr@v2
+        env:
+          Kshitiz-Mhto: ${{ secrets.PERSONAL }}
