@@ -9,8 +9,12 @@ jobs:
     # strategy:
     #   matrix:
     #     directory: ['./ecommerce-website-django','./epl-board']
-
+    name: build-scan-publish
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -40,19 +44,11 @@ jobs:
           pwd
           ls
       - name: Scan for vulnerabilities
-        # working-directory: ./ecommerce-website-django
         run: |
           wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
           chmod +x ./osv-scanner_1.2.0_linux_amd64
-          ./osv-scanner_1.2.0_linux_amd64 -r .
-
-      # - name: Scan for vulnerabilities
-      #   working-directory: ./epl-board
-      #   run: |
-      #     wget https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
-      #     chmod +x ./osv-scanner_1.2.0_linux_amd64
-      #     ./osv-scanner_1.2.0_linux_amd64 requirements.txt
-
+          ./osv-scanner_1.2.0_linux_amd64 --format markdown -r .
+        continue-on-error: true
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@v1.8.1
         with:

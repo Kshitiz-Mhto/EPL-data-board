@@ -1,0 +1,13 @@
+name: OSV Scanner
+
+on: push
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: OSV Scanner
+        run: |
+          docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner:latest scan --recursive .
+        continue-on-error: true
