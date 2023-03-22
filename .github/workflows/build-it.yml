@@ -8,7 +8,6 @@ jobs:
     # Required permissions
     permissions:
       pull-requests: read
-      push: read
     # Set job outputs to values from filter step
     outputs:
       epl: ${{ steps.filter.outputs.epl1 }}
