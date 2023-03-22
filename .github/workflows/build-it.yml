@@ -3,8 +3,8 @@ name: Build Python Package
 on: push
 
 jobs:
-  change-detector:
-     runs-on: ubuntu-latest
+  changedetector:
+    runs-on: ubuntu-latest
     # Required permissions
     permissions:
       pull-requests: read
@@ -26,8 +26,8 @@ jobs:
               - 'ecommerce-website-django/**'
 
   build-it-epl:
-    needs: change-detector
-    if: ${{ needs.change-detector.outputs.epl == 'true' }}
+    needs: changedetector
+    if: ${{ needs.changedetector.outputs.epl == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -42,8 +42,8 @@ jobs:
           twine check --strict ./dist/*
 
   buit-it-eccomerce:
-    needs: change-detector
-    if: ${{ needs.change-detector.outputs.ecom == 'true' }}
+    needs: changedetector
+    if: ${{ needs.changedetector.outputs.ecom == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
