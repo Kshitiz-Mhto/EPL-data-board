@@ -1,0 +1,34 @@
+name: Build Python Package
+
+on: push
+
+jobs:
+  build-it-epl:
+    if: github.event_name == 'push' && './epl-board/' in github.event.head_commit.modified
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Build package for epl
+        working-directory: ./ecommerce-website-django
+        run: |
+          python -m build 
+          twine check --strict ./dist/*
+
+  buit-it-eccomerce:
+    if: github.event_name == 'push' && './ecommerce-website-django/' in github.event.head_commit.modified
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Build package for ecommernce
+        working-directory: ./ecommerce-website-django
+        run: |
+          python -m build 
+          twine check --strict ./dist/*
