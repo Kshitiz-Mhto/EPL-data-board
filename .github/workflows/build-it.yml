@@ -3,8 +3,31 @@ name: Build Python Package
 on: push
 
 jobs:
+  change-detector:
+     runs-on: ubuntu-latest
+    # Required permissions
+    permissions:
+      pull-requests: read
+      push: read
+    # Set job outputs to values from filter step
+    outputs:
+      epl: ${{ steps.filter.outputs.epl1 }}
+      ecom: ${{ steps.filter.outputs.ecom1 }}
+    steps:
+      - uses: actions/checkout@v3
+    # For pull requests it's not necessary to checkout the code
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            epl1:
+              - 'epl-board/**'
+            ecom1:
+              - 'ecommerce-website-django/**'
+
   build-it-epl:
-    if: github.event_name == 'push' && './epl-board/' in github.event.head_commit.modified
+    needs: change-detector
+    if: ${{ needs.change-detector.outputs.epl == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +42,8 @@ jobs:
           twine check --strict ./dist/*
 
   buit-it-eccomerce:
-    if: github.event_name == 'push' && './ecommerce-website-django/' in github.event.head_commit.modified
+    needs: change-detector
+    if: ${{ needs.change-detector.outputs.ecom == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
