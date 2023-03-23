@@ -7,8 +7,9 @@ on: push
 jobs:
   scan:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/google/osv-scanner:latest
     steps:
-      - uses: actions/checkout@v3 
       - name: OSV Scanner
         run: |
            docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner:latest --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
