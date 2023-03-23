@@ -10,6 +10,7 @@ jobs:
     container:
       image: ghcr.io/google/osv-scanner:latest
     steps:
+      - uses: actions/checkout@v3
       - name: OSV Scanner
         run: |
           pwd
