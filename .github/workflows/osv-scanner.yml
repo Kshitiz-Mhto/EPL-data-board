@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: OSV Scanner
         run: |
-           osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+          pwd
+          #osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
         continue-on-error: true
       - name: Create Pull Request
         id: cpr
