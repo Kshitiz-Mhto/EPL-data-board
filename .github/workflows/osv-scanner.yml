@@ -14,6 +14,7 @@ jobs:
       - name: OSV Scanner
         run: |
           pwd
+          ls
           #osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
         continue-on-error: true
       - name: Create Pull Request
