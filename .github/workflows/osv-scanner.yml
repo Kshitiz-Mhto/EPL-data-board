@@ -18,7 +18,8 @@ jobs:
       - name: Scan for vulnerabilities
         uses: docker://ghcr.io/google/osv-scanner:latest
         with:
-          args: --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+          args: --format markdown -r . 
+          #| grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
         continue-on-error: true
         
       - name: cmd
