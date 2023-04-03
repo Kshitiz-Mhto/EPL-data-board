@@ -11,18 +11,20 @@ jobs:
   #    image: ghcr.io/google/osv-scanner:latest
     steps:
     
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
       - name: Scan for vulnerabilities
-      
         uses: docker://ghcr.io/google/osv-scanner:latest
         with:
           args: --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
         continue-on-error: true
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        
+      - name: cmd
+        run: ls
       
    #   - uses: ghcr.io/google/osv-scanner
-      
      # - name: OSV Scanner
       #  run: |
        #   pwd
