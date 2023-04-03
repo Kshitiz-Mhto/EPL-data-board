@@ -17,13 +17,8 @@ jobs:
         id: osv_scan
         uses: docker://ghcr.io/google/osv-scanner:latest
         with:
-          args: --format markdown -r .
+          args: --format markdown -r . > VULNERABILITY.md
         continue-on-error: true
-      - name: Store scan output as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: VULNERABILITY.md
-          path: ./
       
      # - name: Save scan output to file
       #  run: echo "${{ steps.osv_scan.outcome }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
