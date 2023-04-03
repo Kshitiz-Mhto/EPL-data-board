@@ -1,6 +1,6 @@
 name: Build Python Package
 
-on: push
+on: release
 
 jobs:
   changedetector:

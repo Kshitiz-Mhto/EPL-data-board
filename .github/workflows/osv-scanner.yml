@@ -8,11 +8,21 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 
-      - name: OSV Scanner
-        run: |
-           docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner:latest --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+    
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Scan for vulnerabilities
+        id: osv_scan
+        uses: docker://ghcr.io/google/osv-scanner:latest
+        with:
+          args: --format markdown -r .
         continue-on-error: true
+        
+      - name: Save scan output to file
+        run: echo "${{ steps.osv_scan.outputs.stdout }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+      
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
@@ -24,7 +34,7 @@ jobs:
           title: Add vulnerability report
           commit-message: Add vulnerability report
           body: |
-            *Update Vulnerablity report*
+            Update *Vulnerablity* report
           delete-branch: true
           labels: enhancement
           assignees: Kshitiz-Mhto
