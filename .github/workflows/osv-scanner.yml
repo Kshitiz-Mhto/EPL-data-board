@@ -16,6 +16,7 @@ jobs:
           fetch-depth: 0
           
       - name: Scan for vulnerabilities
+        id: osv_scan
         uses: docker://ghcr.io/google/osv-scanner:latest
         with:
           args: --format markdown -r .
