@@ -10,16 +10,23 @@ jobs:
  #   container:
   #    image: ghcr.io/google/osv-scanner:latest
     steps:
-      - name: pull docker image
-        uses: ghcr.io/google/osv-scanner:latest
-      
-      - name: OSV Scanner
-        run: |
-          pwd
-          ls
-          docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
-        continue-on-error: true
       - uses: actions/checkout@v3
+      - name: Scan for vulnerabilities
+      
+        uses: docker://ghcr.io/google/osv-scanner:latest
+        with:
+          args: --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+        continue-on-error: true
+
+      
+   #   - uses: ghcr.io/google/osv-scanner
+      
+     # - name: OSV Scanner
+      #  run: |
+       #   pwd
+        #  ls
+         # docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+       # continue-on-error: true
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
