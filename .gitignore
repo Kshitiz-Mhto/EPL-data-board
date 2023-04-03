@@ -32,6 +32,9 @@
 .idea/uiDesigner.xml
 .idea/*
 
+.github
+.github/**
+
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
