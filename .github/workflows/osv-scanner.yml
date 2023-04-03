@@ -23,7 +23,7 @@ jobs:
         continue-on-error: true
         
       - name: Save scan output to file
-        run: echo "${{ steps.osv_scan.outputs }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+        run: echo "${{ steps.osv_scan.outputs.* }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
       
    #   - uses: ghcr.io/google/osv-scanner
      # - name: OSV Scanner
