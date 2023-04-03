@@ -20,7 +20,7 @@ jobs:
           pwd
           ls
           docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
-        continue-on-error: true
+       # continue-on-error: true
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
