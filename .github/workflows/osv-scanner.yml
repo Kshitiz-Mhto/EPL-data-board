@@ -7,15 +7,19 @@ on: push
 jobs:
   scan:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/google/osv-scanner:latest
+ #   container:
+  #    image: ghcr.io/google/osv-scanner:latest
     steps:
       - uses: actions/checkout@v3
+      
+      - name: pull docker image
+        run: docker pull ghcr.io/google/osv-scanner:latest
+      
       - name: OSV Scanner
         run: |
           pwd
           ls
-          #osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+          docker run --rm -v $PWD:/repo -w /repo ghcr.io/google/osv-scanner --format markdown -r . | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
         continue-on-error: true
       - name: Create Pull Request
         id: cpr
@@ -28,7 +32,7 @@ jobs:
           title: Add vulnerability report
           commit-message: Add vulnerability report
           body: |
-            *Update Vulnerablity report*
+            Update *Vulnerablity* report
           delete-branch: true
           labels: enhancement
           assignees: Kshitiz-Mhto
