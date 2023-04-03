@@ -11,7 +11,7 @@ jobs:
   #    image: ghcr.io/google/osv-scanner:latest
     steps:
       - name: pull docker image
-        run: docker pull ghcr.io/google/osv-scanner:latest
+        uses: ghcr.io/google/osv-scanner:latest
       
       - name: OSV Scanner
         run: |
