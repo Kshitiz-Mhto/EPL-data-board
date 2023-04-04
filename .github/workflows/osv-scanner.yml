@@ -20,8 +20,11 @@ jobs:
           args: --format markdown -r . > VULNERABILITY.md
         continue-on-error: true
       
-     # - name: Save scan output to file
-      #  run: echo "${{ steps.osv_scan.outcome }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+      - name: run me
+        run: echo "${{ steps.osv_scan.outputs.result }}"
+      
+      - name: Save scan output to file
+        run: echo "${{ steps.osv_scan.outputs.result }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
       
       - name: Create Pull Request
         id: cpr
