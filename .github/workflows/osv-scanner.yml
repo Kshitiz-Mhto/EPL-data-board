@@ -24,9 +24,7 @@ jobs:
       - name: Save scan output to file
         run: |
           ls -a
-          cat ./VULNERABILITY.md 
-        continue-on-error: true
-        #echo "${{ steps.osv_scan.outputs.result }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+          echo "${{ steps.osv_scan.outputs.stderr }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
       
       - name: Create Pull Request
         id: cpr
