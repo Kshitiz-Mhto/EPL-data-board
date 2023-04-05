@@ -17,14 +17,13 @@ jobs:
         id: osv_scan
         uses: docker://ghcr.io/google/osv-scanner:latest
         with:
-          args: --format markdown -r . > VULNERABILITY.md
+          args: --format markdown -r .
+          filename: ./VULNERABILITY.md
         continue-on-error: true
       
-      - name: run me
-        run: echo "${{ steps.osv_scan.outputs.result }}"
-      
       - name: Save scan output to file
-        run: echo "${{ steps.osv_scan.outputs.result }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
+        run: cat ./VULNERABILITY.md 
+        #echo "${{ steps.osv_scan.outputs.result }}" | grep -vE '^((Scanning|Scanned).*)$' > VULNERABILITY.md
       
       - name: Create Pull Request
         id: cpr
