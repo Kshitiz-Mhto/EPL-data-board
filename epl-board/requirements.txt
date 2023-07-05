@@ -23,7 +23,7 @@ eyeD3==0.8.10
 filelock==3.6.0
 Flask==2.2.3
 greenlet==1.1.2
-grpcio==1.30.2
+grpcio==1.53.0
 gyp==0.1
 httplib2==0.20.2
 idna==3.3
