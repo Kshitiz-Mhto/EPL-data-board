@@ -1,0 +1,454 @@
+html body{
+	margin:0px;
+	padding: 0px;
+	scroll-behavior: smooth;
+}
+header{
+	background: url('assets/bgheader.png') top center;
+	text-align: center;
+	background-size:cover;
+	color: white;
+	width: 100vw;
+}
+#logo{
+	width:90px;
+	margin-top: 40px;
+	padding-top: 40px;
+}
+#head {
+	margin: auto;
+	padding-top: 50px;
+	padding-bottom: 150px;
+	font-family: 'Poppins', sans-serif;
+}
+#head h2 {
+	font-size: 45px;
+	font-weight: 800;
+  }
+  #head h4{
+	font-size: 25px;
+  }
+#headerButton{
+	background-color: #FD5B49;
+	border-radius: 4px;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 22px;
+	padding: 10px;
+	width: 200px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+  }
+
+.button span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.button:hover span {
+padding-right: 25px;
+}
+
+.button:hover span:after {
+opacity: 1;
+right: 0;
+}
+
+#headerliner{
+	width: 100vw;
+}
+
+.main{
+	margin: auto;
+	width: 100%;
+	height: fit-content;
+	margin-bottom: 5px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+}
+
+.flex-container > div {
+  margin: 10px;
+  padding: 20px;
+}
+#data1{
+	margin-top: 15px;
+	text-align: center;
+	color:gray;
+	width: 550px;
+}
+#data2{
+	width: 700px;
+	margin: 2px;
+	text-align: center;
+	height: fit-content;
+	padding-left: 10px;
+	font-size: 25px;
+}
+#daterange{
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	font-size: 13px;
+	color: grey;
+}
+
+.flex-Todaymatch {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Poppins', sans-serif;
+}
+.flex-Todaymatch > div{
+	text-align: left;
+	font-size: 20px;
+
+}
+#crest{
+	width:30px;
+}
+#crestVS{
+	width: 15px;
+}
+#hrs{
+	background-color: #007bff;
+	border-radius: 3px;
+}
+.w3-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.w3-table-all{border:1px solid #ccc}
+.w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.w3-table-all tr:nth-child(odd){background-color:#fff}.w3-table-all tr:nth-child(even){background-color:#f1f1f1}
+.w3-table td,.w3-table th,.w3-table-all td,.w3-table-all th{padding:8px 8px;display:table-cell;text-align:center;vertical-align:top}
+.w3-tablei th:first-child,.w3-table td:first-child,.w3-table-all th:first-child,.w3-table-all td:first-child{padding-left:16px;width:100%;display:table}
+.w3-table-all {
+	height: fit-content;
+}
+
+#datatable{
+	margin: auto;
+	margin-top: 90px;
+	margin-bottom: 20px;
+
+}
+
+td{
+	font-family: 'Poppins', sans-serif;
+	color: black;
+}
+
+.flex-containery {
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+}
+.flex-containery > div {
+  margin: 3px;
+  font-size: 12px;
+  width: 18px;
+  text-align: center;
+  border-radius: 3px;
+
+}
+
+#yWon{
+	height: 17px;
+	color: white;
+	line-height: 17px;
+	background-color: #04AA6D;;
+}
+#yLost{
+	height: 17px;
+	color: white;
+	line-height: 17px;
+	background-color: #E83737;
+}
+
+#yDraw{
+	height: 17px;
+	color: white;
+	line-height: 17px;
+	background-color: rgb(117, 101, 101);
+}
+
+.flex-top5{
+	display:flex;
+	border-style: solid;
+	font-family: 'Poppins', sans-serif;
+}
+#dataGoal{
+	width: 700px;
+	margin: 2px;
+	text-align: center;
+	height: fit-content;
+	padding-left: 10px;
+	font-size: 25px;
+	font-family: 'Poppins', sans-serif;
+}
+
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:400;
+  letter-spacing: 2px;
+  font-size:48px;
+  color: greenyellow;
+  padding-top:115px;
+}
+
+.afterTable {
+  position:relative;
+  text-align:center;
+  /* background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%); */
+  background: url('assets/footballgoround.jpg') center;
+  color:white;
+  margin-top: 54px;
+  background-size: cover;
+}
+.inner-header {
+  height:80vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+}
+
+.teamsFlag{
+	width: 100%;
+	height: fit-content;
+	background: url('assets/linestadium.jpg') center;
+	background-size: cover;
+	margin:auto;
+	margin-top: 80px;
+	overflow: hidden;
+	padding-bottom: 30px;
+}
+
+.flex-teamFlag{
+	display:flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width:80%;
+	margin:auto;
+	margin-top:4px;
+	font-family: 'Poppins', sans-serif;
+	
+}
+
+#titleFlex{
+	color:white;
+	text-align:center;
+	font-size: 30px;
+	font-weight: 300px;
+}
+
+.flex-teamFlag > div{
+	width:210px;
+	transition: transform 0.6s;
+}
+
+#crestAll{
+	width: 105px;
+	margin-top: 40px;
+
+}
+
+#teamDetail{
+	position: absolute;
+	width: fit-content;
+	height: fit-content;
+	z-index: 10;
+	border-style: solid;
+	text-align: center;
+}
+
+#crestAll:hover{
+	transform: scale(1.23);
+}
+
+#dataP{
+	width: 95vw;
+	margin:auto;
+	margin-top:110px;
+	margin-bottom:50px;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	border-style: solid;
+	border-radius: 3px;
+	border-width: 0px;
+	box-shadow: 2px 2px 20px;
+	height: fit-content;
+}
+
+#dataGoali{
+	width: 400px;
+	margin: 2px;
+	text-align: center;
+	height: fit-content;
+	padding-left: 6px;
+	font-size: 20px;
+	font-family: 'Poppins', sans-serif;
+	margin-left:90px;
+	display: inline-block;
+}
+
+#dataAssisti{
+	width: 400px;
+	margin: 2px;
+	text-align: center;
+	height: fit-content;
+	padding-left: 6px;
+	font-size: 20px;
+	font-family: 'Poppins', sans-serif;
+	display: inline-block;
+	margin-left:280px;
+}
+
+#crestData{
+	width:25px;
+}
+
+/* loader */
+
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+  }
+  
+.spinner {
+width: 50px;
+height: 50px;
+border: 8px solid #f3f3f3;
+border-radius: 50%;
+border-top: 8px solid #3498db;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+  
+footer{
+	background-color: blanchedalmond;
+	margin-top: 100px;
+}
+
+.flex-Footer {
+	display: flex;
+	flex-direction: row;
+	background-color: transparent;
+	justify-content: space-evenly;
+  }
+
+.flex-Footer > div {
+	background-color: transparent;
+	margin: auto;
+	text-align: Center;
+	font-size: 15px;
+	line-height: 25px;
+}
+
+#r1footer, #r12footer{
+	width:500px;
+}
+
+#r12footer{
+	font-size: 26px;
+	color: gray;
+	padding-top: 75px;
+}
+
+#logo{
+	width: 200px;
+	height: 170px;
+	object-fit: cover;	
+}
+
+.social-icon{
+    margin-left:7px;
+    margin-right: 7px;
+    font-size: 45px;
+    color:black;
+    text-decoration: none;
+    transition: color 0.25s;
+}
+
+.social-icon:hover{
+    color:blue;
+    cursor: pointer;
+}
