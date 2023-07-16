@@ -1,6 +1,8 @@
 # EPL-data-board
 
-![alt EPL logo](./static/assets/logoright.png)
+<p align="center">
+	<img src="./static/assets/logoright.png">
+</p>
 
 **English Premier League** data is extracted through [Football-Data](https://www.football-data.org/) and created informative page for football enthusiast and fans to provide them reliable data and information about the *ONGOING* EPL.
 
