@@ -1,3 +1,0 @@
-Superuser Django Admin
-Username: khandorvatsal203
-Password: testing321

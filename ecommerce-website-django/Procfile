@@ -1,1 +1,0 @@
-web: gunicorn ecommerce_django.wsgi
