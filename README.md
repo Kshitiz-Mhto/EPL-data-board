@@ -42,7 +42,7 @@ Landing Screen
 </p>
 
 <p align="center">
-	<img src="./static/assets/homeScreen.png" alt="homescreen" width="700" height="450">
+	<img src="./static/assets/homeScreen.png" alt="homescreen" width="700" height="auto">
 </p>
 
 <p align="center">
@@ -50,7 +50,7 @@ Today Session
 </p>
 
 <p align="center">
-	<img src="./static/assets/todayMatch.png" alt="homescreen" width="700" height="450">
+	<img src="./static/assets/todayMatch.png" alt="homescreen" width="700" height="auto">
 </p>
 
 <p align="center">
@@ -58,7 +58,7 @@ Current Season Standings
 </p>
 
 <p align="center">
-	<img src="./static/assets/currentStandings.png" alt="homescreen" width="700" height="450">
+	<img src="./static/assets/currentStandings.png" alt="homescreen" width="700" height="auto">
 </p>
 
 <p align="center">
@@ -66,7 +66,7 @@ LOL
 </p>
 
 <p align="center">
-	<img src="./static/assets/littleSkill.png" alt="homescreen" width="700" height="450">
+	<img src="./static/assets/littleSkill.png" alt="homescreen" width="700" height="auto">
 </p>
 
 <p align="center">
@@ -74,7 +74,7 @@ EPL teams
 </p>
 
 <p align="center">
-	<img src="./static/assets/plTeams.png" alt="homescreen" width="700" height="450">
+	<img src="./static/assets/plTeams.png" alt="homescreen" width="700" height="auto">
 </p>
 
 <p align="center">
@@ -82,7 +82,7 @@ Topper in EPL
 </p>
 
 <p align="center">
-	<img src="./static/assets/topPlayers.png" alt="homescreen" width="700" height="450">
+	<img src="./static/assets/topPlayers.png" alt="homescreen" width="700" height="auto">
 </p>
 
 `Form column will be added as soon as EPL will start in 2023. Thank you!!`
